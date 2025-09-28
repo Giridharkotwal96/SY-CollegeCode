@@ -54,6 +54,7 @@ merge(beg,mid,end);
 }
 }
 
+void sortedlist()
 {
 printf("\nThe element after sorting : ");
 
@@ -145,6 +146,7 @@ for(i=0;i<size;i++)
 printf(" %d ", a[i]);
 }
 
+do{
 printf("\n\t1)Perform sorting by BubbleSort\n\t2)Perform sorting by InsertionSort\n\t3)Perform sorting by SelectionSort\n\t4)Perform sorting by MergeSort  ");
 
 printf("\nSelect by which method would you like to do sorting : ");
@@ -161,10 +163,11 @@ case 3 : selectionsort();
 break;
 
 case 4 : divide(0,size-1);
-void sortedlist();
+sortedlist();
 break;
 
 case 5 : printf("choice is not present");
 break;
 }
+}while(choice != 5);
 }

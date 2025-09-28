@@ -22,4 +22,10 @@ void main()
 printf("Enter the size of stack :- ");
 scanf("%d",&size);
 
+push();
+push();
+push();
+push();
+push();
+push();
 }

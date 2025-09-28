@@ -1,0 +1,133 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node 
+{
+int data;
+struct node *next;
+};
+
+struct node *head=NULL;
+struct node *temp;
+struct node *newNode;
+struct node *prevNode;
+
+struct node *createNode()
+{
+newNode= malloc(sizeof(struct node));
+if(newNode==NULL)
+printf("\nMemory is not allocated");
+else
+{
+printf("\nEnter the data :- ");
+scanf("%d",&newNode->data);
+newNode->next=NULL;
+}
+return newNode;
+}
+
+
+void endInsertion()
+{
+newNode=createNode();
+newNode->next=NULL;
+if(head==NULL)
+head=newNode;
+else
+{
+temp=head;
+while(temp->next !=NULL)
+temp=temp->next;
+temp->next=newNode;
+}
+printf("\nInserted at end");
+}
+ 
+
+void display()
+{
+if(head==NULL)
+printf("\nList is empty");
+else
+{
+temp=head;
+printf("\nList is :- ");
+while(temp!=NULL)
+{
+printf("%d->",temp->data);
+temp=temp->next;
+}
+}
+}
+
+
+void locationDeletion()
+{
+if(head==NULL)
+printf("\nList is empty, Underflow");
+else
+{
+temp=head;
+if(head->next==NULL)
+{
+printf("\nNode is deleted :- %d",head->data);
+head=NULL;
+free(temp);
+}
+else
+{
+int location;
+printf("\nEnter the location :- ");
+scanf("%d",&location);
+if(location==1)
+{
+printf("\nNode is deleted :- %d",temp->data);
+head=head->next;
+free(temp);
+}
+else
+{
+int i;
+for(i=1; i<location; i++)
+{
+prevNode=temp;
+temp=temp->next;
+}
+printf("\nNode is Deleted = %d",temp->data);
+prevNode->next=temp->next;
+free(temp);
+}
+}
+}
+}
+
+
+void main()
+{
+printf("\nHere it is code block for locationInsertion");
+int choice;
+
+do{
+
+printf("\n1)EndInsertion\n2)LocationDeletion\n3)Display\n4)Exit");
+printf("\nEnter the choice :- ");
+scanf("%d",&choice);
+
+switch(choice)
+{
+
+case 1 : endInsertion();
+	 break;
+
+case 2: locationDeletion();
+	break;
+
+case 3: display();
+	break;
+
+case 4: printf("\nExit");
+	break;
+
+}
+}while(choice !=4);
+}
