@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<graphics.h>
+#include<conio.h>
+#include<math.h>
+
+int main()
+{
+int x1, y1, x2, y2, tx, ty, gd, gm;
+gd = DETECT;
+initgraph(&gd, &gm, "C:\\TurboC3\\BGI");
+printf("Enter the line segment :- ");
+scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
+line(x1, y1, x2, y2);
+outtextxy(x2+2, y2+2, "Before Translation");
+
+printf("\nEnter translation distance :- ");
+scanf("%d%d", &tx, &ty);
+
+x1 = x1 * tx;
+y1 = y1 * ty;
+x2 = x2 * tx;
+y2 = y2 * ty;
+
+line(x1, y1, x2, y2);
+outtextxy(x2+3, y2+3, "After translation");
+closegraph();
+return 0;
+}
