@@ -2,6 +2,8 @@ import java.io.*;
 import java.net.*;
 class TCPServer {
   public static void main(String argv[]) throws Exception {
+System.out.println("Name :- Giridhar Kotwal");
+System.out.println("Roll no:- 36");
     String clientSentence;
     String capitalizedSentence;
     ServerSocket welcomeSocket = new ServerSocket(7006);
